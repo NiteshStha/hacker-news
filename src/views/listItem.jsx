@@ -25,7 +25,7 @@ class ListItem extends Component {
   };
 
   render() {
-    const date = new Date(this.state.data.time);
+    const date = new Date(this.state.data.time * 1000);
     return (
       <div className="title">
         {this.state.isLoading && 'Loading....'}
@@ -43,7 +43,9 @@ class ListItem extends Component {
               <span>By: {this.state.data.by}</span>
               <span>Time: {date.toDateString()}</span>
               <span>
-                <a href={this.state.data.url}>Visit Site</a>
+                <a href={this.state.data.url} target="_blank">
+                  Visit Site
+                </a>
               </span>
             </div>
           </>
