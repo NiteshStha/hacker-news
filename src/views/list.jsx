@@ -9,7 +9,9 @@ class List extends Component {
 
     this.state = {
       isLoading: true,
-      data: []
+      data: [],
+      pageNo: 0,
+      pageListItems: 8
     };
   }
 
@@ -18,18 +20,61 @@ class List extends Component {
       .then(response => response.json())
       .then(response => {
         this.setState({
-          data: [...response].slice(0, 200),
+          data: [...response],
           isLoading: false
         });
       });
   }
 
+  handlePageChange = pageCheck => {
+    {
+      pageCheck === 1 &&
+        this.setState({
+          pageNo: this.state.pageNo + pageCheck
+        });
+    }
+    {
+      pageCheck === -1 &&
+        this.state.pageNo > 0 &&
+        this.setState({
+          pageNo: this.state.pageNo + pageCheck
+        });
+    }
+  };
+
   render() {
     return (
       <div className="list">
-        {this.state.data.map(item => (
-          <ListItem key={item} id={item} />
-        ))}
+        {this.state.data
+          .slice(
+            this.state.pageNo * this.state.pageListItems,
+            (this.state.pageNo + 1) * this.state.pageListItems
+          )
+          .map(item => (
+            <ListItem key={item} id={item} />
+          ))}
+        {!this.state.isLoading && (
+          <div
+            style={{ textAlign: 'center', marginTop: 15, paddingBottom: 15 }}
+          >
+            <button
+              className="pageBtn"
+              style={{ marginRight: 5 }}
+              onClick={() => this.handlePageChange(-1)}
+            >
+              Prev
+            </button>
+            <button
+              className="pageBtn"
+              style={{
+                marginLeft: 5
+              }}
+              onClick={() => this.handlePageChange(1)}
+            >
+              Next
+            </button>
+          </div>
+        )}
       </div>
     );
   }
