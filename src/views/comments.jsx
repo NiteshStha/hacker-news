@@ -7,6 +7,7 @@ class Comment extends Component {
     super();
 
     this.state = {
+      isLoading: true,
       data: {}
     };
   }
@@ -16,6 +17,7 @@ class Comment extends Component {
       .then(response => response.json())
       .then(response => {
         this.setState({
+          isLoading: false,
           data: response
         });
       });
@@ -24,6 +26,7 @@ class Comment extends Component {
   render() {
     return (
       <div className="comment">
+        {this.state.isLoading && 'Loading....'}
         <h3>{this.state.data.by}</h3>
         <div
           className="commentmain"

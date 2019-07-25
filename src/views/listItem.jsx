@@ -28,6 +28,7 @@ class ListItem extends Component {
     const date = new Date(this.state.data.time);
     return (
       <div className="title">
+        {this.state.isLoading && 'Loading....'}
         {!this.state.isLoading && (
           <>
             <Link

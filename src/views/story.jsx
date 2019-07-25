@@ -26,6 +26,10 @@ class Story extends Component {
     return (
       <div className="commentBlock">
         <div className="cancel-btn clearfix" style={{ marginBottom: 20 }}>
+          <div style={{ float: 'left' }}>
+            <h2 style={{ marginBottom: 15 }}>{this.state.data.title}</h2>
+            <span style={{ fontSize: 16 }}>Comments</span>
+          </div>
           <img
             src={cancel}
             style={{ float: 'right' }}
