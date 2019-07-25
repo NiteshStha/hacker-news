@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Spinner from 'react-spinkit';
 
 import getUrl from './../utils/https';
 
@@ -26,7 +27,7 @@ class Comment extends Component {
   render() {
     return (
       <div className="comment">
-        {this.state.isLoading && 'Loading....'}
+        {this.state.isLoading && <Spinner name="ball-beat" />}
         <h3>{this.state.data.by}</h3>
         <div
           className="commentmain"

@@ -24,26 +24,28 @@ class Story extends Component {
 
   render() {
     return (
-      <div className="commentBlock">
-        <div className="cancel-btn clearfix" style={{ marginBottom: 20 }}>
-          <div style={{ float: 'left' }}>
-            <h2 style={{ marginBottom: 15 }}>{this.state.data.title}</h2>
-            <span style={{ fontSize: 16 }}>Comments</span>
+      <div className="commentBg" style={{ position: 'absolute' }}>
+        <div className="commentBlock">
+          <div className="cancel-btn clearfix" style={{ marginBottom: 20 }}>
+            <div style={{ float: 'left' }}>
+              <h2 style={{ marginBottom: 15 }}>{this.state.data.title}</h2>
+              <span style={{ fontSize: 16 }}>Comments</span>
+            </div>
+            <img
+              src={cancel}
+              style={{ float: 'right' }}
+              alt="Exit Button"
+              onClick={this.handleCancelButton}
+            />
           </div>
-          <img
-            src={cancel}
-            style={{ float: 'right' }}
-            alt="Exit Button"
-            onClick={this.handleCancelButton}
-          />
+          {this.state.data.kids && this.state.data.kids.length > 0 && (
+            <div>
+              {this.state.data.kids.map(kid => (
+                <Comment key={kid} id={kid} />
+              ))}
+            </div>
+          )}
         </div>
-        {this.state.data.kids && this.state.data.kids.length > 0 && (
-          <div>
-            {this.state.data.kids.map(kid => (
-              <Comment key={kid} id={kid} />
-            ))}
-          </div>
-        )}
       </div>
     );
   }

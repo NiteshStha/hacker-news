@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import Spinner from 'react-spinkit';
 
 import getUrl from '../utils/https';
 
@@ -28,7 +29,7 @@ class ListItem extends Component {
     const date = new Date(this.state.data.time * 1000);
     return (
       <div className="title">
-        {this.state.isLoading && 'Loading....'}
+        {this.state.isLoading && <Spinner name="ball-beat" />}
         {!this.state.isLoading && (
           <>
             <Link
@@ -43,7 +44,11 @@ class ListItem extends Component {
               <span>By: {this.state.data.by}</span>
               <span>Time: {date.toDateString()}</span>
               <span>
-                <a href={this.state.data.url} target="_blank">
+                <a
+                  href={this.state.data.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   Visit Site
                 </a>
               </span>
