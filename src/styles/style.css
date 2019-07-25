@@ -1,0 +1,106 @@
+.navBar {
+  background-color: #2b2a2ad5;
+  padding: 12px;
+  width: 100%;
+}
+
+.navBar a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.navBar h1 {
+  text-align: center;
+  font-size: 28px;
+  letter-spacing: 5px;
+  word-spacing: 5px;
+}
+
+.list {
+  position: absolute;
+  width: 100%;
+}
+
+.content-wrapper {
+  position: relative;
+}
+
+.title {
+  text-align: center;
+  height: 80px;
+  padding: 20px;
+  font-size: 18px;
+  border-bottom: 1px solid #2b2a2a2a;
+  color: #0f88ad;
+}
+
+.title a {
+  text-decoration: none;
+  color: #0f88ad;
+}
+
+.title a:hover {
+  text-decoration: underline;
+}
+
+.details {
+  font-size: 14px;
+}
+
+.details span {
+  padding-left: 5px;
+  padding-right: 5px;
+  border-right: 1px solid;
+}
+
+.details span:last-child {
+  border-right: none;
+}
+
+.commentBlock {
+  position: fixed;
+  background-color: #ffffff;
+  box-shadow: #0f88ad;
+  border: 1px solid;
+  border-radius: 8px;
+  font-size: 18px;
+  line-height: 40px;
+  width: 80vw;
+  height: 80vh;
+  padding: 10px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow: scroll;
+}
+
+.commentmain {
+  margin-bottom: 10px;
+  border: 2px solid #2b2a2a2a;
+  border-left: 4px solid #2b2a2a2a;
+  padding: 10px;
+  padding-left: 20px;
+  border-radius: 4px;
+}
+
+.commentmain a {
+  color: #0f88ad;
+}
+
+.commentmain:hover {
+  border-left: 4px solid #0f88ad;
+}
+
+.clearfix::after {
+  content: '';
+  clear: both;
+  display: table;
+}
+
+.cancel-btn img:hover {
+  cursor: pointer;
+}
+
+.commentDescents {
+  padding-left: 50px;
+}
