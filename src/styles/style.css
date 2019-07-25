@@ -74,10 +74,15 @@
   overflow: scroll;
 }
 
+.comment {
+  padding-left: 10px;
+  border: 1px solid #2b2a2a2a;
+  border-left: 4px solid #2b2a2a2a;
+  margin-bottom: 20px;
+}
+
 .commentmain {
   margin-bottom: 10px;
-  border: 2px solid #2b2a2a2a;
-  border-left: 4px solid #2b2a2a2a;
   padding: 10px;
   padding-left: 20px;
   border-radius: 4px;
@@ -87,7 +92,7 @@
   color: #0f88ad;
 }
 
-.commentmain:hover {
+.comment:hover {
   border-left: 4px solid #0f88ad;
 }
 
