@@ -63,8 +63,8 @@
   box-shadow: #0f88ad;
   border: 1px solid;
   border-radius: 8px;
-  font-size: 18px;
-  line-height: 40px;
+  font-size: 14px;
+  line-height: 20px;
   width: 80vw;
   height: 80vh;
   padding: 10px;
@@ -84,7 +84,7 @@
 .commentmain {
   margin-bottom: 10px;
   padding: 10px;
-  padding-left: 20px;
+  padding-left: 10px;
   border-radius: 4px;
 }
 
@@ -107,5 +107,5 @@
 }
 
 .commentDescents {
-  padding-left: 50px;
+  padding-left: 10px;
 }
