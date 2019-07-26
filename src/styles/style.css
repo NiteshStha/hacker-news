@@ -118,13 +118,11 @@ body {
 }
 
 .pageBtn {
-  padding: 10px 20px;
-  background-color: #2b2a2ad5;
-  font-size: 16px;
+  font-size: 36px;
   color: #ffffff;
   border: none;
   outline: none;
-  border-radius: 15px;
+  background: transparent;
 }
 
 .pageBtn:hover {

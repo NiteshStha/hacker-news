@@ -11,7 +11,7 @@ class List extends Component {
       isLoading: true,
       data: [],
       pageNo: 0,
-      pageListItems: 8
+      pageListItems: 20
     };
   }
 
@@ -27,8 +27,11 @@ class List extends Component {
   }
 
   handlePageChange = pageCheck => {
+    window.scrollTo(0, 0);
     {
       pageCheck === 1 &&
+        this.state.pageNo <
+          this.state.data.length / this.state.pageListItems - 1 &&
         this.setState({
           pageNo: this.state.pageNo + pageCheck
         });
@@ -59,19 +62,38 @@ class List extends Component {
           >
             <button
               className="pageBtn"
-              style={{ marginRight: 5 }}
+              style={{ marginRight: 8 }}
               onClick={() => this.handlePageChange(-1)}
             >
-              Prev
+              ⏮
             </button>
+            <span style={{ fontSize: 20 }}>
+              {this.state.pageNo > 0 && this.state.pageNo}
+            </span>
+            <span
+              style={{
+                fontSize: 28,
+                marginLeft: 8,
+                marginRight: 8,
+                fontWeight: 'bold',
+                color: '#0f88ad'
+              }}
+            >
+              {this.state.pageNo + 1}
+            </span>
+            <span style={{ fontSize: 20 }}>
+              {this.state.pageNo <
+                this.state.data.length / this.state.pageListItems - 1 &&
+                this.state.pageNo + 2}
+            </span>
             <button
               className="pageBtn"
               style={{
-                marginLeft: 5
+                marginLeft: 8
               }}
               onClick={() => this.handlePageChange(1)}
             >
-              Next
+              ⏭
             </button>
           </div>
         )}
