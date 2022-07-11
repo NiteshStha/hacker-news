@@ -1,0 +1,12 @@
+.comment-li {
+  margin: 0.5rem 0rem;
+  padding-left: 0.75rem !important;
+}
+
+.comment-by {
+  font-weight: bold;
+  color: #828282;
+  font-size: 14px;
+  display: block;
+  margin-bottom: 0.25rem;
+}

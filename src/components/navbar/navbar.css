@@ -7,10 +7,13 @@
   padding: 0.75rem;
 }
 
-.nav .nav-left {
+.nav .nav-left,
+.nav .nav-left .logo-link {
   display: flex;
   align-items: center;
   gap: 0.75rem;
+  color: #ffffff;
+  text-decoration: none;
 }
 
 .nav .nav-logo {

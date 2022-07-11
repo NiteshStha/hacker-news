@@ -1,5 +1,6 @@
 import './navbar.css';
 import logo from '../../assets/images/y18.png';
+import { Link } from 'react-router-dom';
 
 const navItems: string[] = [
   'new',
@@ -15,8 +16,10 @@ const Navbar = () => {
   return (
     <div className="nav">
       <div className="nav-left">
-        <img src={logo} alt="logo" className="nav-logo" />
-        <div className="nav-title">Hacker News</div>
+        <Link to="/" className="logo-link">
+          <img src={logo} alt="logo" className="nav-logo" />
+          <div className="nav-title">Hacker News</div>
+        </Link>
         <ul className="nav-list">
           {navItems.map((item, i) => (
             <li key={i}>

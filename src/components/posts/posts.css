@@ -15,14 +15,29 @@
   padding: 0.25rem;
 }
 
+.list-style-none {
+  list-style: none;
+}
+
 .post-title {
   display: block;
+  text-decoration: none;
+  color: #000000;
 }
 
 .post-details {
   display: block;
   font-size: 12px;
   color: #828282;
+}
+
+.post-details a {
+  color: #828282;
+  text-decoration: none;
+}
+
+.post-details a:hover {
+  text-decoration: underline;
 }
 
 .show-more-btn {
@@ -32,4 +47,5 @@
   border-radius: 4px;
   margin-left: 1rem;
   margin-top: 0.25rem;
+  cursor: pointer;
 }

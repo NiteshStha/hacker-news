@@ -1,5 +1,6 @@
 import moment from 'moment';
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { PostObj } from '../../models/post';
 import { HnUrl } from '../../utilities/url';
 
@@ -21,8 +22,8 @@ const Post: React.FC<PostProps> = (props) => {
       const response = await fetch(HnUrl.getUrl(`item/${id}.json`));
       const output = (await response.json()) as PostObj;
       setPost(output);
-      setIsLoading(false);
       setDate(new Date(output.time * 1000));
+      setIsLoading(false);
     }
 
     fetchData();
@@ -35,10 +36,25 @@ const Post: React.FC<PostProps> = (props) => {
         <>
           {post && (
             <li key={id}>
-              <span className="post-title">{post.title}</span>
+              <a
+                href={post.url}
+                target="_blank"
+                rel="noreferrer"
+                className="post-title"
+              >
+                {post.title}
+              </a>
               <span className="post-details">
                 {post.score} points by {post.by} {moment(date).fromNow()}
-                {post.kids && <span> | {post.kids?.length} Comments</span>}
+                {post.kids && (
+                  <>
+                    {' '}
+                    |{' '}
+                    <Link to={`/comments/${post.id}`}>
+                      {post.descendants} Comments
+                    </Link>
+                  </>
+                )}
               </span>
             </li>
           )}
