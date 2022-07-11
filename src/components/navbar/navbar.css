@@ -1,0 +1,41 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ff6600;
+  padding: 0.2rem;
+}
+
+.nav .nav-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.nav .nav-logo {
+  border: 1px solid #ffffff;
+}
+
+.nav .nav-title {
+  font-weight: 700;
+}
+
+.nav .nav-list {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+
+.nav .nav-list li:not(:last-child):after {
+  margin: 0rem 0.5rem;
+  font-size: 16px;
+  content: '|';
+}
+
+.nav .nav-login {
+  font-size: 14px;
+  text-decoration: none;
+  color: #000000;
+  margin-right: 0.5rem;
+}
