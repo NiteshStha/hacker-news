@@ -19,7 +19,9 @@ const Navbar = () => {
         <div className="nav-title">Hacker News</div>
         <ul className="nav-list">
           {navItems.map((item, i) => (
-            <li key={i}>{item}</li>
+            <li key={i}>
+              <a href={`#${item}`}>{item}</a>
+            </li>
           ))}
         </ul>
       </div>
