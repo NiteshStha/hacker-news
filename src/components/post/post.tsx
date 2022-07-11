@@ -1,6 +1,7 @@
 import moment from 'moment';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { BarLoader } from 'react-spinners';
 import { PostObj } from '../../models/post';
 import { HnUrl } from '../../utilities/url';
 
@@ -31,7 +32,11 @@ const Post: React.FC<PostProps> = (props) => {
 
   return (
     <>
-      {isLoading && <div className="post-loader">Loading.........</div>}
+      {isLoading && (
+        <div className="post-loader">
+          <BarLoader width={300} />
+        </div>
+      )}
       {!isLoading && (
         <>
           {post && (

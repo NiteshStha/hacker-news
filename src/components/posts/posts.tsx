@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { SyncLoader } from 'react-spinners';
 import { slicePostsIntoChunks } from '../../utilities/slice-posts-into-chunks';
 import { HnUrl } from '../../utilities/url';
 import Post from '../post/post';
@@ -50,7 +51,11 @@ const Posts = () => {
 
   return (
     <>
-      {isLoading && <div className="posts-loader">Loading.........</div>}
+      {isLoading && (
+        <div className="posts-loader">
+          <SyncLoader />
+        </div>
+      )}
       {!isLoading && (
         <>
           <ol className="post-list">

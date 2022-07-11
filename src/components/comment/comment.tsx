@@ -1,5 +1,6 @@
 import moment from 'moment';
 import React, { useEffect, useState } from 'react';
+import { BarLoader } from 'react-spinners';
 import { PostObj } from '../../models/post';
 import { HnUrl } from '../../utilities/url';
 import './comment.css';
@@ -28,7 +29,11 @@ const Comment: React.FC<CommentProps> = (props) => {
 
   return (
     <>
-      {isLoading && <div className="post-loader">Loading.........</div>}
+      {isLoading && (
+        <div className="post-loader">
+          <BarLoader width={500} />
+        </div>
+      )}
       {!isLoading && comment?.text && (
         <li className="comment-li">
           <span className="comment-by">

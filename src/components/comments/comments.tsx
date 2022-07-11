@@ -1,6 +1,7 @@
 import moment from 'moment';
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import { SyncLoader } from 'react-spinners';
 import { PostObj } from '../../models/post';
 import { HnUrl } from '../../utilities/url';
 import Comment from '../comment/comment';
@@ -30,7 +31,11 @@ const Comments = () => {
 
   return (
     <>
-      {isLoading && <div className="posts-loader">Loading.........</div>}
+      {isLoading && (
+        <div className="posts-loader">
+          <SyncLoader />
+        </div>
+      )}
       {!isLoading && (
         <>
           <h3 className="post-heading">{post?.title}</h3>
