@@ -1,9 +1,10 @@
 .nav {
+  color: #ffffff;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #ff6600;
-  padding: 0.2rem;
+  background-color: #314152;
+  padding: 0.75rem;
 }
 
 .nav .nav-left {
@@ -36,6 +37,6 @@
 .nav .nav-login {
   font-size: 14px;
   text-decoration: none;
-  color: #000000;
+  color: #ffffff;
   margin-right: 0.5rem;
 }

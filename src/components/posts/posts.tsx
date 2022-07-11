@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
 import { slicePostsIntoChunks } from '../../utilities/slice-posts-into-chunks';
-import { url } from '../../utilities/url';
+import { HnUrl } from '../../utilities/url';
 import Post from '../post/post';
+import './posts.css';
 
 const Posts = () => {
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const [posts, setPosts] = useState<number[]>([]);
   const [displayPosts, setDisplayPosts] = useState<number[]>([]);
   const [postsChunks, setPostsChunks] = useState<number[][]>([]);
@@ -14,9 +16,10 @@ const Posts = () => {
    */
   useEffect(() => {
     async function fetchData() {
-      const response = await fetch(url.topStories);
+      const response = await fetch(HnUrl.topStories);
       const output = (await response.json()) as number[];
       setPosts(output);
+      setIsLoading(false);
     }
 
     fetchData();
@@ -26,7 +29,7 @@ const Posts = () => {
    * Convert fetched posts into chunks of 30
    */
   useEffect(() => {
-    const chunks = slicePostsIntoChunks(posts, 100);
+    const chunks = slicePostsIntoChunks(posts, 30);
     setPostsChunks(chunks);
 
     let showPosts: number[] = [];
@@ -46,15 +49,22 @@ const Posts = () => {
   };
 
   return (
-    <div>
-      <ul>
-        {displayPosts &&
-          displayPosts.map((post) => <Post key={post} id={post} />)}
-      </ul>
-      {displaySize < postsChunks.length - 1 && (
-        <button onClick={showMore}>More</button>
+    <>
+      {isLoading && <div className="posts-loader">Loading.........</div>}
+      {!isLoading && (
+        <>
+          <ol className="post-list">
+            {displayPosts &&
+              displayPosts.map((post) => <Post key={post} id={post} />)}
+          </ol>
+          {displaySize < postsChunks.length - 1 && (
+            <button className="show-more-btn" onClick={showMore}>
+              More
+            </button>
+          )}
+        </>
       )}
-    </div>
+    </>
   );
 };
 
